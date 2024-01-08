@@ -1,8 +1,7 @@
 {
-  "name": "Food Scanner Prototype",
+  "name": "Scanner App Prototype",
   "short_name": "Scanner",
-  "display": "standalone",
-  "orientation": "portrait",
+  "description": "Scanner PWA",
   "scope": "/",
   "start_url": "/",
   "icons": [
@@ -30,5 +29,6 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "splash_pages": null
 }

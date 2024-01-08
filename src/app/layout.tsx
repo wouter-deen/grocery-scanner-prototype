@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "PWA with Next 13",
-  description: "PWA application with Next 13",
+  title: "Food Scanner App Prototype",
+  description: "Scanner",
   generator: "Next.js",
   manifest: "/manifest.json",
   icons: [
-    { rel: "apple-touch-icon", url: "icons/icon-192x192.png" },
-    { rel: "icon", url: "icons/icon-192x192.png" },
+    { rel: "apple-touch-icon", url: "icons/logo-192x192.png" },
+    { rel: "icon", url: "icons/logo-192x192.png" },
   ],
 };
 
