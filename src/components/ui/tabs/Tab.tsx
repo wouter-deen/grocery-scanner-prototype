@@ -1,8 +1,8 @@
 import {ReactNode} from "react";
 
-export default function Tab({currentTab, number, children}: Props) {
+export default function Tab({currentTab, index, children}: Props) {
   return (
-    <div className={`${currentTab !== number && "hidden"}`}>
+    <div className={`${currentTab !== index && "hidden"}`}>
       {children}
     </div>
   )
@@ -10,6 +10,6 @@ export default function Tab({currentTab, number, children}: Props) {
 
 type Props = {
   currentTab: number,
-  number: number,
+  index: number,
   children: ReactNode
 }
