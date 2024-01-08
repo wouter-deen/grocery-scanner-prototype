@@ -12,6 +12,7 @@ export default function Home() {
   const [toggle, setToggle] = useState(0);
 
   function runScan() {
+    // @ts-ignore
     const file = document.querySelector('input[type=file]')?.files[0];
 
     const PAT = 'c1d7cdd443654f16bc7a64d3d77d3b88';
@@ -64,6 +65,7 @@ export default function Home() {
       .catch(error => alert('error: ' + error));
   }
 
+  // @ts-ignore
   return (
     <main className="px-4 py-4 sm:px-8 sm:py-8">
       <h3 className="text-5xl sm:text-6xl font-bold">Your Food</h3>
@@ -108,6 +110,7 @@ export default function Home() {
                         onClick={() => setToggle(1)}/>
           </div>
           <Button className="bg-lime-600" onClick={() => document.getElementById("camInput")?.click()}>Open Scanner</Button>
+          {/* @ts-ignore */}
           <input type="file" accept="image/*" capture="camera" className="hidden" id="camInput" onChangeCapture={() => runScan()}/>
         </div>
       </div>
