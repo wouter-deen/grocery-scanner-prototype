@@ -1,28 +1,72 @@
-{
-  "categories": ["Vegetables", "Fruit", "Meat", "Dairy", "Carbs", "Oil", "Seasoning"],
-  "tomato": {
-    "icon": "🍅",
-    "amount": "4 pcs",
-    "category": "Vegetables"
+[
+  {
+    "name": "Vegetables",
+    "items": [
+      {
+        "name": "Tomato",
+        "icon": "🍅",
+        "amount": "4 pcs",
+        "category": "Vegetables"
+      },
+      {
+        "name": "Potato",
+        "icon": "🥔",
+        "amount": "4 pcs",
+        "category": "Vegetables"
+      }
+    ]
   },
-  "potato": {
-    "icon": "🥔",
-    "amount": "4 pcs",
-    "category": "Vegetables"
+  {
+    "name": "Fruit",
+    "items": [
+      {
+        "name": "Avocado",
+        "icon": "🥑",
+        "amount": "2 pcs",
+        "category": "Fruit"
+      },
+      {
+        "name": "Apple",
+        "icon": "🍎",
+        "amount": "6 pcs",
+        "category": "Fruit"
+      },
+      {
+        "name": "Kiwi",
+        "icon": "🥝",
+        "amount": "4 pcs",
+        "category": "Fruit"
+      }
+    ]
   },
-  "avocado": {
-    "icon": "🥑",
-    "amount": "2 pcs",
-    "category": "Fruit"
+  {
+    "name": "Meat",
+    "items": [
+
+    ]
   },
-  "apple": {
-    "icon": "🍎",
-    "amount": "6 pcs",
-    "category": "Fruit"
+  {
+    "name": "Dairy",
+    "items": [
+
+    ]
   },
-  "kiwi": {
-    "icon": "🥝",
-    "amount": "4 pcs",
-    "category": "Fruit"
+  {
+    "name": "Carbs",
+    "items": [
+
+    ]
+  },
+  {
+    "name": "Oil",
+    "items": [
+
+    ]
+  },
+  {
+    "name": "Seasoning",
+    "items": [
+
+    ]
   }
-}
+]

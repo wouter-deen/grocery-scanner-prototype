@@ -11,6 +11,7 @@ import food from "../food.json"
 export default function Home() {
   const [currentTab, setCurrentTab] = useState(0);
   const [toggle, setToggle] = useState(0);
+  const [inv, setInv] = useState<any[]>(food);
 
   async function runScan() {
     //Uploading the file
@@ -70,72 +71,84 @@ export default function Home() {
     if (toggle === 0) {
       alert(productName + " was added to your storage.");
     } else alert(productName + " was removed from your storage.");
+
+    let icon = "❓";
+    switch (productName) {
+      case "orange":
+        icon = "🍊";
+        break;
+      case "tomato":
+        icon = "🍅";
+        break;
+    }
+
+    let category = "Vegetables";
+    switch (productName) {
+      case "orange":
+        category = "Fruit";
+        break;
+    }
+
+    if (toggle === 0) {
+      setInv(prevInv => {
+        // Use map to update the specific category
+        return prevInv.map(categoryObj => {
+          if (categoryObj.name === category) {
+            // Use spread operator to create a new category object
+            return {
+              ...categoryObj,
+              items: [
+                // Keep the existing items and add the new item
+                ...categoryObj.items,
+                {
+                  name: productName.charAt(0).toUpperCase() + productName.slice(1),
+                  icon: icon,
+                  amount: "1 pcs",
+                },
+              ],
+            };
+          }
+          // Return unchanged category objects
+          return categoryObj;
+        });
+      });
+    } else {
+      setInv(prevInv => {
+        return prevInv.map(categoryObj => {
+          if (categoryObj.name === category) {
+            return {
+              ...categoryObj,
+              items: categoryObj.items.filter((item: any) => item.name.toLowerCase() !== productName.toLowerCase()),
+            };
+          }
+          return categoryObj;
+        });
+      });
+    }
   }
 
   // @ts-ignore
   return (
     <main className="px-4 py-4 sm:px-8 sm:py-8">
       <h3 className="text-5xl sm:text-6xl font-bold">Your Food</h3>
-      <TabSelector currentTab={currentTab} tabs={["Vegetables", "Fruit", "Meat", "Diary", "Carbs", "Oil", "Seasoning"]}
+      <TabSelector currentTab={currentTab} tabs={inv.map(cat => cat.name)}
                    setCurrentTab={setCurrentTab}/>
       <Input id="search" type="search" className="max-w-md mt-2 sm:text-xl" placeholder="Search..."/>
 
-      <Tab currentTab={currentTab} index={0}>
-        <ul className="space-y-4">
-
-          <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-lg rounded-lg px-4 py-2">
-            <div className="text-4xl">🍅</div>
-            <div className="mt-1.5">Tomato</div>
-            <div className="mt-1.5 text-right">4 pcs</div>
-          </li>
-          <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-lg rounded-lg px-4 py-2">
-            <div className="text-4xl">🥔</div>
-            <div className="mt-1.5">Potato</div>
-            <div className="mt-1.5 text-right">3 kg</div>
-          </li>
-          <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-lg rounded-lg px-4 py-2">
-            <div className="text-4xl">🥑</div>
-            <div className="mt-1.5">Avocado</div>
-            <div className="mt-1.5 text-right">2 pcs</div>
-          </li>
-        </ul>
-
-      </Tab>
-
-      <Tab currentTab={currentTab} index={1}>
-        <ul className="space-y-4">
-          <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-lg rounded-lg px-4 py-2">
-            <div className="text-4xl">🍎</div>
-            <div className="mt-1.5">Apple</div>
-            <div className="mt-1.5 text-right">4 pcs</div>
-          </li>
-          <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-lg rounded-lg px-4 py-2">
-            <div className="text-4xl">🥝</div>
-            <div className="mt-1.5">Kiwi</div>
-            <div className="mt-1.5 text-right">4 pcs</div>
-          </li>
-        </ul>
-      </Tab>
-
-      <Tab currentTab={currentTab} index={2}>
-        <p>No items</p>
-      </Tab>
-
-      <Tab currentTab={currentTab} index={3}>
-        <p>No items</p>
-      </Tab>
-
-      <Tab currentTab={currentTab} index={4}>
-        <p>No items</p>
-      </Tab>
-
-      <Tab currentTab={currentTab} index={5}>
-        <p>No items</p>
-      </Tab>
-
-      <Tab currentTab={currentTab} index={6}>
-        <p>No items</p>
-      </Tab>
+      {inv.map((category, i) => (
+        <Tab currentTab={currentTab} index={i} key={i}>
+          <ul>
+            {/* @ts-ignore */}
+            {category.items.map((item, j) => (
+              <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-md rounded-lg px-4 py-2 mt-2" key={j}>
+                <div className="text-4xl">{item.icon}</div>
+                <div className="mt-1.5">{item.name}</div>
+                <div className="mt-1.5 text-right">{item.amount}</div>
+              </li>
+            ))}
+          </ul>
+        </Tab>
+      ))}
 
       {/*The add to inventory functionality should only work on the tablet, so it should be hidden on the phone app*/}
       <div className="hidden sm:flex justify-center absolute bottom-8 left-1/2">
