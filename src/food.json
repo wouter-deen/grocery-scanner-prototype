@@ -1,0 +1,28 @@
+{
+  "categories": ["Vegetables", "Fruit", "Meat", "Dairy", "Carbs", "Oil", "Seasoning"],
+  "tomato": {
+    "icon": "🍅",
+    "amount": "4 pcs",
+    "category": "Vegetables"
+  },
+  "potato": {
+    "icon": "🥔",
+    "amount": "4 pcs",
+    "category": "Vegetables"
+  },
+  "avocado": {
+    "icon": "🥑",
+    "amount": "2 pcs",
+    "category": "Fruit"
+  },
+  "apple": {
+    "icon": "🍎",
+    "amount": "6 pcs",
+    "category": "Fruit"
+  },
+  "kiwi": {
+    "icon": "🥝",
+    "amount": "4 pcs",
+    "category": "Fruit"
+  }
+}
