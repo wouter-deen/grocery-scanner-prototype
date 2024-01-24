@@ -1,5 +1,40 @@
 [
   {
+    "name": "All",
+    "items": [
+      {
+        "name": "Tomato",
+        "icon": "🍅",
+        "amount": "4 pcs",
+        "category": "Vegetables"
+      },
+      {
+        "name": "Potato",
+        "icon": "🥔",
+        "amount": "4 pcs",
+        "category": "Vegetables"
+      },
+      {
+        "name": "Avocado",
+        "icon": "🥑",
+        "amount": "2 pcs",
+        "category": "Fruit"
+      },
+      {
+        "name": "Apple",
+        "icon": "🍎",
+        "amount": "6 pcs",
+        "category": "Fruit"
+      },
+      {
+        "name": "Kiwi",
+        "icon": "🥝",
+        "amount": "4 pcs",
+        "category": "Fruit"
+      }
+    ]
+  },
+  {
     "name": "Vegetables",
     "items": [
       {
@@ -58,13 +93,13 @@
     ]
   },
   {
-    "name": "Oil",
+    "name": "Oils & seasoning",
     "items": [
 
     ]
   },
   {
-    "name": "Seasoning",
+    "name": "Sweets",
     "items": [
 
     ]
