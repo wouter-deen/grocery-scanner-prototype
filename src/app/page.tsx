@@ -6,6 +6,8 @@ import Tab from "@/components/ui/tabs/Tab";
 import Button from "@/components/ui/buttons/Button";
 import food from "../food.json"
 import {runScan} from "@/lib/Scanner";
+import IconButton from "@/components/ui/buttons/IconButton";
+import {FaTrash} from "react-icons/fa6";
 
 export default function Home() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -41,10 +43,11 @@ export default function Home() {
           <ul>
             {/* @ts-ignore */}
             {category.items.map((item, j) => (
-              <li className="grid grid-cols-3 gap-4 max-w-xs text-xl bg-slate-100 shadow-md rounded-lg px-4 py-2 mt-2" key={j}>
+              <li className="grid grid-cols-4 gap-4 max-w-sm text-xl bg-slate-100 shadow-md rounded-lg px-4 py-2 mt-2" key={j}>
                 <div className="text-4xl">{item.icon}</div>
                 <div className="mt-1.5">{item.name}</div>
                 <div className="mt-1.5 text-right">{item.amount}</div>
+                <IconButton icon={FaTrash} className="justify-self-end bg-red-400"/>
               </li>
             ))}
           </ul>
